@@ -5,7 +5,7 @@ public class Products {
     protected String description;
     protected double price;
     protected int stock;
-    static double totalPrice = 0;
+
 
 
     public Products(String name, String description, double price, int stock) {
@@ -16,9 +16,7 @@ public class Products {
     }
 
     static ArrayList<Products> product = new ArrayList<>();
-    static ArrayList<Products> myCart = new ArrayList<>();
 
-    static ArrayList<Integer> adets = new ArrayList<>();
     //türkçe isimler denemek içindir(tuncay)
 
     static void addProduct(Products a){
@@ -34,29 +32,9 @@ public class Products {
         }
     }
 
-    static void addToCart(Products a, int adet){
 
-        if ((a.stock - adet) >= 0){
-            myCart.add(a);
-            totalPrice += a.getPrice() * adet;
-            a.setStock(a.stock - adet);
-            adets.add(adet);}
-        else {
-            System.out.printf("Adet stocktan fazla olamaz!!!%nÜrün %s Stoğu: %d%nAdeti: %d%n%n",a.getName(), a.stock, adet);
-        }
-    }
 
-    static void listCart(){
 
-        System.out.println("Products on your cart:");
-        int count = 0;
-        for(Products a: myCart){
-
-            System.out.printf("Name: %s%nAdet: %d%n%n", a.getName(),adets.get(count));
-            count++;
-        }
-        System.out.printf("Total price: %.2f",totalPrice);
-    }
 
     //------------------------------------------------
 

@@ -38,10 +38,17 @@ public class Main {
 
         Products.listProducts();
 
-        Products.addToCart(p1, 11);
-        Products.addToCart(p2, 12);
+        Cart.addToCart(p1, 10);
+        Cart.addToCart(p2, 12);
 
-        Products.listCart();
+        CartManager.changeItem(p1,1);
+        CartManager.changeItem(p2,0);
+        //sepetteki "p1" ürününün adetini güncellemeye yarıyor.
+
+        //CartManager.clearCart(); çalışıyorr
+
+        Cart.listCart();
+
         System.out.println();
         System.out.println();
 
