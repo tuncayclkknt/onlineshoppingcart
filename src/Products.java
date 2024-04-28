@@ -16,9 +16,10 @@ public class Products {
     }
 
     static ArrayList<Products> product = new ArrayList<>();
-    static ArrayList<Integer> adets = new ArrayList<>();
-
     static ArrayList<Products> myCart = new ArrayList<>();
+
+    static ArrayList<Integer> adets = new ArrayList<>();
+    //türkçe isimler denemek içindir(tuncay)
 
     static void addProduct(Products a){
         product.add(a);

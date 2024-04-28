@@ -16,8 +16,6 @@ public abstract class User {
     public abstract void login(String username, String password);
     public abstract void register(String name, String surname, String username, String password, String email);
 
-
-
 //---------------------------get set----------------------------
         public String getUsername() {
             return username;
