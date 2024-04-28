@@ -44,6 +44,8 @@ public class Main {
         CartManager.changeItem(p1,1);
         CartManager.changeItem(p2,0);
         //sepetteki "p1" ürününün adetini güncellemeye yarıyor.
+        // if else eklenecek eğer sepetteyse adet değiştir diye
+        // totalprice değişimleri ayarlandı ama stock değişimleri AYARLANMADI (tuncay)(sıkıldığım için)
 
         //CartManager.clearCart(); çalışıyorr
 
