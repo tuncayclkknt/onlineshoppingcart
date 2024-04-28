@@ -26,7 +26,7 @@ public class Main {
         System.out.println(u1.getEmail());
 
         u1.toplamkisiler();
-        System.out.println();
+        System.out.println("-------------------------------------------------------------------");
 
         Products p1 = new Products("Kalem","yazıyor işte",120.99,10);
         Products p2 = new Products("Silgi","siliyor işte", 9.99,13);
@@ -38,8 +38,8 @@ public class Main {
 
         Products.listProducts();
 
-        p1.addToCart(p1, 5);
-        p1.addToCart(p2, 15);
+        Products.addToCart(p1, 11);
+        Products.addToCart(p2, 12);
 
         Products.listCart();
         System.out.println();
@@ -47,14 +47,7 @@ public class Main {
 
         Products.listProducts();
 
-        //sepete eklenen adet kısmında sorun var
-
-
-
-
-
-
-
+        //sepete eklenen adet kısmında sorun var // hallettimmmm(tuncay)
 
     }
 }

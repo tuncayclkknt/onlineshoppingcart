@@ -11,6 +11,8 @@ public class UserManager extends User{
         super(name, surname, username, password);
     }
 
+
+    @Override
     public void register(String name, String surname,String username, String password, String email) {
 
         if (users.containsKey(username))
@@ -23,9 +25,9 @@ public class UserManager extends User{
             this.surname = surname;
             System.out.println("Account created, now you can log in.");
         }
-
     }
 
+    @Override
     public void login(String username, String password) {
 
         didLogin = true;

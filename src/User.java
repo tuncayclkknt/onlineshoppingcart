@@ -1,5 +1,5 @@
 
-public class User {
+public abstract class User {
     protected String username;
     protected String password;
     protected String email;
@@ -11,7 +11,12 @@ public class User {
         this.surname = surname;
         this.username = username;
         this.password = password;
-        }
+    }
+
+    public abstract void login(String username, String password);
+    public abstract void register(String name, String surname, String username, String password, String email);
+
+
 
 //---------------------------get set----------------------------
         public String getUsername() {
@@ -49,5 +54,6 @@ public class User {
     }
 
         public void setSurname(String surname){this.surname = surname;}
+
 
 }
