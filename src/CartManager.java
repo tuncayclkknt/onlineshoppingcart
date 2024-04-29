@@ -11,5 +11,6 @@ public class CartManager extends Cart{
     static void clearCart(){
         myCart.clear();
         Cart.totalPrice = 0;
+        System.out.println("Sepetiniz temizlendi!\n");
     }
 }

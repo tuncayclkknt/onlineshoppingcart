@@ -47,7 +47,9 @@ public class Main {
         // if else eklenecek eğer sepetteyse adet değiştir diye
         // totalprice değişimleri ayarlandı ama stock değişimleri AYARLANMADI (tuncay)(sıkıldığım için)
 
-        //CartManager.clearCart(); çalışıyorr
+        CartManager.clearCart(); //çalışıyorr
+
+        Cart.addToCart(p3,1);
 
         Cart.listCart();
 
