@@ -1,4 +1,4 @@
-public class CartManager extends Cart{
+public abstract class CartManager extends Cart{
 
     static void changeItem(Products a, int sayı){
 
