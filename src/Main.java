@@ -36,10 +36,13 @@ public class Main {
         Products.addProduct(p2);
         Products.addProduct(p3);
 
+        Products.updateStock(p1,12);
+
         Products.listProducts();
 
-        Cart.addToCart(p1, 10);
+        Cart.addToCart(p1, 14);
         Cart.addToCart(p2, 12);
+        //adet stocktan fazla olduğunda hata veriyor try cath yapılacak
 
         CartManager.changeItem(p1,1);
         CartManager.changeItem(p2,0);
@@ -57,7 +60,6 @@ public class Main {
         System.out.println();
 
         Products.listProducts();
-
         //sepete eklenen adet kısmında sorun var // hallettimmmm(tuncay)
     }
 }

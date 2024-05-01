@@ -19,6 +19,11 @@ public class Products {
 
     //türkçe isimler denemek içindir(tuncay)
 
+    static void updateStock(Products a, int newQuantities){
+        a.setStock(newQuantities);
+        System.out.println("Stoklar güncellendi!");
+    }
+
     static void addProduct(Products a){
         product.add(a);
     }

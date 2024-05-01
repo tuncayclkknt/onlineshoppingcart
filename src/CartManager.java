@@ -8,6 +8,7 @@ public abstract class CartManager extends Cart{
         totalPrice += quantity.get(indexOfProduct) * a.price;
     }
 
+
     static void clearCart(){
         myCart.clear();
         Cart.totalPrice = 0;

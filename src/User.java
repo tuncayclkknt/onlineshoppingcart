@@ -32,7 +32,7 @@ public abstract class User {
 
         public String getName() {
         return name;
-    }
+        }
 
         public String getSurname(){return surname;}
 
@@ -50,9 +50,9 @@ public abstract class User {
 
         public void setName(String name) {
         this.name = name;
-    }
+        }
 
-        public void setSurname(String surname){this.surname = surname;}
-
-
+        public void setSurname(String surname){
+            this.surname = surname;
+        }
 }
