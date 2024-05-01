@@ -6,11 +6,12 @@ public abstract class User {
     protected String name;
     protected String surname;
 
-    public User(String name, String surname,String username, String password) {
+    public User(String name, String surname,String username, String password, String email) {
         this.name = name;
         this.surname = surname;
         this.username = username;
         this.password = password;
+        this.email = email;
     }
 
     public abstract void login(String username, String password);

@@ -2,7 +2,7 @@
 public class Main {
     public static void main(String[] args) {
 
-        UserManager u1 = new UserManager("Tuncay","Çelikkanat","tncy","şifre");
+        UserManager u1 = new UserManager("Tuncay","Çelikkanat","tncy","şifre","tuncayclkknt@gmail.com");
 
         u1.register("Tuncay","Çelikkanat","tncy","şifre","tuncayclkknt@gmail.com");
 
@@ -23,7 +23,7 @@ public class Main {
 
         System.out.println(u1.getUsername());
         System.out.println(u1.getPassword());
-        System.out.println(u1.getEmail());
+        System.out.println(u1.getEmail() + "\n");
 
         u1.toplamkisiler();
         System.out.println("-------------------------------------------------------------------");
@@ -59,6 +59,5 @@ public class Main {
         Products.listProducts();
 
         //sepete eklenen adet kısmında sorun var // hallettimmmm(tuncay)
-
     }
 }

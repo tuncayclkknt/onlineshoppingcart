@@ -1,16 +1,16 @@
 public abstract class CartManager extends Cart{
 
-    static void changeItem(Products a, int sayı){
+    static void changeItem(Products a, int newQuantity){
 
-        int b = myCart.indexOf(a);
-        totalPrice -= adets.get(b) * a.price;
-        adets.add(b, sayı);
-        totalPrice += adets.get(b) * a.price;
+        int indexOfProduct = myCart.indexOf(a);
+        totalPrice -= quantity.get(indexOfProduct) * a.price;
+        quantity.add(indexOfProduct, newQuantity);
+        totalPrice += quantity.get(indexOfProduct) * a.price;
     }
 
     static void clearCart(){
         myCart.clear();
         Cart.totalPrice = 0;
-        System.out.println("Sepetiniz temizlendi!\n");
+        System.out.println("Your Cart Has Been Cleared!\n");
     }
 }

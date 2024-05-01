@@ -33,9 +33,6 @@ public class Products {
     }
 
 
-
-
-
     //------------------------------------------------
 
     public String getName() {

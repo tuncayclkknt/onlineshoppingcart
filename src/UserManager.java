@@ -7,8 +7,8 @@ public class UserManager extends User{
 
     public HashMap<String, String> users = new HashMap<>();
 
-    public UserManager(String name, String surname, String username, String password) {
-        super(name, surname, username, password);
+    public UserManager(String name, String surname, String username, String password, String email) {
+        super(name, surname, username, password, email);
     }
 
 
@@ -90,6 +90,7 @@ public class UserManager extends User{
         }
     }
 
+    // adminler için
     public void toplamkisiler(){
 
         for (Map.Entry<String, String> entry : users.entrySet()) {
