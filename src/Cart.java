@@ -3,6 +3,7 @@ import java.util.ArrayList;
 public abstract class Cart {
     static double totalPrice = 0;
     static int count = 0;
+
     static ArrayList<Products> myCart = new ArrayList<>();
     static ArrayList<Integer> quantity = new ArrayList<>();
 

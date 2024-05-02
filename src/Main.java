@@ -2,7 +2,7 @@
 public class Main {
     public static void main(String[] args) {
 
-        UserManager u1 = new UserManager("Tuncay","Çelikkanat","tncy","şifre","tuncayclkknt@gmail.com");
+        UserManager u1 = new UserManager("name","surname","username","password","mail@example.com");
 
         u1.register("Tuncay","Çelikkanat","tncy","şifre","tuncayclkknt@gmail.com");
 

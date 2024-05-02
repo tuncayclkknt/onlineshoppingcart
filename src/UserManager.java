@@ -19,6 +19,7 @@ public class UserManager extends User{
             System.out.println("This username already taken!");
 
         else {
+            this.username = username;
             users.put(username, password);
             this.email = email;
             this.name = name;
