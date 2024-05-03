@@ -49,7 +49,7 @@ public class Main {
             System.out.println(x.getName()); // for control
 
         CartManager.changeItem(p1,5);
-        CartManager.changeItem(p2,5);
+        CartManager.changeItem(p2,7);
         //sepetteki "p1" ürününün adetini güncellemeye yarıyor.
         // if else eklenecek eğer sepetteyse adet değiştir diye (eklendi ) enes
 
