@@ -1,11 +1,15 @@
 import java.util.ArrayList;
 
-public abstract class Cart {
+public abstract class Cart extends User {
     static double totalPrice = 0;
     static int count = 0;
 
     static ArrayList<Products> myCart = new ArrayList<>();
     static ArrayList<Integer> quantity = new ArrayList<>();
+
+    public Cart(String name, String surname, String username, String password, String email) {
+        super(name, surname, username, password, email);
+    }
 
     static void addToCart(Products a, int adet){
 
@@ -13,7 +17,7 @@ public abstract class Cart {
 
             myCart.add(a);
             quantity.add(adet);
-            totalPrice += a.getPrice() * quantity.get(Cart.count);
+            totalPrice += a.getPrice() * quantity.get(myCart.indexOf(a));
             a.setStock(a.stock - adet);
         }
         else {

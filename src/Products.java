@@ -6,13 +6,14 @@ public class Products {
     protected double price;
     protected int stock;
 
-
+    static ArrayList<Integer> InitialStocks = new ArrayList<>();
 
     public Products(String name, String description, double price, int stock) {
         this.name = name;
         this.description = description;
         this.price = price;
         this.stock = stock;
+        InitialStocks.add(stock);
     }
 
     static ArrayList<Products> product = new ArrayList<>();
@@ -21,6 +22,7 @@ public class Products {
 
     static void updateStock(Products a, int newQuantities){
         a.setStock(newQuantities);
+        InitialStocks.set(product.indexOf(a),newQuantities);
         System.out.println("Stoklar güncellendi!");
     }
 

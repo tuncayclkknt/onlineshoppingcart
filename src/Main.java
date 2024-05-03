@@ -1,3 +1,4 @@
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
@@ -40,19 +41,24 @@ public class Main {
 
         Products.listProducts();
 
-        Cart.addToCart(p1, 14);
+        Cart.addToCart(p1, 10);
         Cart.addToCart(p2, 12);
-        //adet stocktan fazla olduğunda hata veriyor try cath yapılacak
+        //adet stocktan fazla olduğunda hata veriyor try cath yapılacak (bir şeyler yaptım gerek kalmadı ama neden bilmiyorum)
 
-        CartManager.changeItem(p1,1);
-        CartManager.changeItem(p2,0);
+        for(Products x:Cart.myCart)
+            System.out.println(x.getName()); // for control
+
+        CartManager.changeItem(p1,5);
+        CartManager.changeItem(p2,5);
         //sepetteki "p1" ürününün adetini güncellemeye yarıyor.
-        // if else eklenecek eğer sepetteyse adet değiştir diye
-        // totalprice değişimleri ayarlandı ama stock değişimleri AYARLANMADI (tuncay)(sıkıldığım için)
+        // if else eklenecek eğer sepetteyse adet değiştir diye (eklendi ) enes
 
-        CartManager.clearCart(); //çalışıyorr
+        // totalprice değişimleri ayarlandı ama stock değişimleri AYARLANMADI (tuncay)(sıkıldığım için) //ayarlandı (enes)
 
-        Cart.addToCart(p3,1);
+        //CartManager.clearCart(); //çalışıyorr
+
+        for(int x:Cart.quantity)
+            System.out.println(x); //for control
 
         Cart.listCart();
 
