@@ -26,7 +26,6 @@ public class Main {
         System.out.println(u1.getPassword());
         System.out.println(u1.getEmail() + "\n");
 
-        u1.toplamkisiler();
         System.out.println("-------------------------------------------------------------------");
 
         Products p1 = new Products("Kalem","yazıyor işte",120.99,10);
