@@ -12,28 +12,35 @@ public abstract class Cart extends User {
 
     static void addToCart(Products a, int adet){
 
-        if ((a.stock - adet) >= 0){
+        if (didLogin) {
+            if ((a.stock - adet) >= 0) {
 
-            myCart.add(a);
-            quantity.add(adet);
-            totalPrice += a.getPrice() * quantity.get(myCart.indexOf(a));
-            a.setStock(a.stock - adet);
-        }
-        else {
-            System.out.printf("Adet stocktan fazla olamaz!!!%nÜrün %s Stoğu: %d%nAdeti: %d%n%n",a.getName(), a.stock, adet);
+                myCart.add(a);
+                quantity.add(adet);
+                totalPrice += a.getPrice() * quantity.get(myCart.indexOf(a));
+                a.setStock(a.stock - adet);
+            } else {
+                System.out.printf("Adet stocktan fazla olamaz!!!%nÜrün %s Stoğu: %d%nAdeti: %d%n%n", a.getName(), a.stock, adet);
+            }
+        }else{
+            System.out.println("You have to log in!!!");
         }
     }
 
     static void listCart(){
 
-        System.out.println("Products on your cart:");
-        int count = 0;
-        for(Products a: myCart){
-            if(quantity.get(count) != 0){
-            System.out.printf("Name: %s%nAdet: %d%n%n", a.getName(),quantity.get(count));
+        if (didLogin) {
+            System.out.println("Products on your cart:");
+            int count = 0;
+            for (Products a : myCart) {
+                if (quantity.get(count) != 0) {
+                    System.out.printf("Name: %s%nAdet: %d%n%n", a.getName(), quantity.get(count));
+                }
+                count++;
             }
-            count++;
+            System.out.printf("Total price: %.2f", totalPrice);
+        }else {
+            System.out.println("You have to log in!!!");
         }
-        System.out.printf("Total price: %.2f",totalPrice);
     }
 }

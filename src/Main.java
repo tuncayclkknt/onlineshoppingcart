@@ -7,7 +7,7 @@ public class Main {
 
         u1.register("Tuncay","Çelikkanat","tncy","şifre","tuncayclkknt@gmail.com");
 
-        u1.login("tncy","şifre");
+        //u1.login("tncy","şifre");
         System.out.println();
 
         System.out.println(u1.getUsername());

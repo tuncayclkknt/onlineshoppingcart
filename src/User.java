@@ -6,6 +6,8 @@ public abstract class User {
     protected String name;
     protected String surname;
 
+    static boolean didLogin = false;
+
     public User(String name, String surname,String username, String password, String email) {
         this.name = name;
         this.surname = surname;

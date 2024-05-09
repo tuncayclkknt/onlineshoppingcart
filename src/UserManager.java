@@ -3,8 +3,6 @@ import java.util.ArrayList;
 
 public class UserManager extends User{
 
-    private boolean didLogin = false; //giriş yaptıktan sonra yapılabilecek işlemler için kullan örn. updateUsername.
-
     private static int nextID = 1;
     private int userID;
 
@@ -36,7 +34,7 @@ public class UserManager extends User{
     }
 
     public void logout(){
-        didLogin = false;
+        didLogin= false;
     }
 
     @Override
