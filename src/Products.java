@@ -23,7 +23,7 @@ public class Products {
     static void updateStock(Products a, int newQuantities){
         a.setStock(newQuantities);
         InitialStocks.set(product.indexOf(a),newQuantities);
-        System.out.println("Stoklar güncellendi!");
+        System.out.printf("Stock of %s has been updated to %d!%n",a.getName().toLowerCase(), newQuantities);
     }
 
     static void addProduct(Products a){

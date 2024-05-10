@@ -19,8 +19,9 @@ public abstract class Cart extends User {
                 quantity.add(adet);
                 totalPrice += a.getPrice() * quantity.get(myCart.indexOf(a));
                 a.setStock(a.stock - adet);
+                System.out.printf("%dx %s has been added your cart.%n",adet,a.getName());
             } else {
-                System.out.printf("Adet stocktan fazla olamaz!!!%nÜrün %s Stoğu: %d%nAdeti: %d%n%n", a.getName(), a.stock, adet);
+                System.out.printf("Adet stocktan fazla olamaz!!!%nÜrün %s Stoğu: %d%nAdeti: %d%n%n", a.getName().toLowerCase(), a.stock, adet);
             }
         }else{
             System.out.println("You have to log in!!!");

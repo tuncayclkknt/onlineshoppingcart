@@ -7,7 +7,7 @@ public class Main {
 
         u1.register("Tuncay","Çelikkanat","tncy","şifre","tuncayclkknt@gmail.com");
 
-        //u1.login("tncy","şifre");
+        u1.login("tncy","şifre");
         System.out.println();
 
         System.out.println(u1.getUsername());
@@ -44,8 +44,10 @@ public class Main {
         Cart.addToCart(p2, 12);
         //adet stocktan fazla olduğunda hata veriyor try cath yapılacak (bir şeyler yaptım gerek kalmadı ama neden bilmiyorum)
 
+        System.out.println("---------------------------");
         for(Products x:Cart.myCart)
             System.out.println(x.getName()); // for control
+        System.out.println("---------------------------");
 
         CartManager.changeItem(p1,5);
         CartManager.changeItem(p2,7);
@@ -56,8 +58,10 @@ public class Main {
 
         //CartManager.clearCart(); //çalışıyorr
 
+        System.out.println("---------------------------");
         for(int x:Cart.quantity)
             System.out.println(x); //for control
+        System.out.println("---------------------------");
 
         Cart.listCart();
 
