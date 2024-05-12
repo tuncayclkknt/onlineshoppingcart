@@ -52,7 +52,6 @@ public class Main {
         CartManager.changeItem(p1,5);
         CartManager.changeItem(p2,7);
 
-
         //CartManager.clearCart(); //çalışıyorr
 
         System.out.println("---------------------------");
