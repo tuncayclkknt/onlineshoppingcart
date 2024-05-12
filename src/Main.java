@@ -4,6 +4,8 @@ public class Main {
     public static void main(String[] args) {
 
         UserManager u1 = new UserManager("name","surname","username","password","mail@example.com");
+        UserManager u2 = new UserManager("name","surname","username","password","mail@example.com");
+        UserManager u3 = new UserManager("name","surname","username","password","mail@example.com");
 
         u1.register("Tuncay","Çelikkanat","tncy","şifre","tuncayclkknt@gmail.com");
 
