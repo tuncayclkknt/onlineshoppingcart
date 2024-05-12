@@ -1,17 +1,14 @@
 import java.util.ArrayList;
 
-public abstract class Cart extends User {
+public abstract class Cart{
     static double totalPrice = 0;
 
     static ArrayList<Products> myCart = new ArrayList<>();
     static ArrayList<Integer> quantity = new ArrayList<>();
 
-    public Cart(String name, String surname, String username, String password, String email) {
-        super(name, surname, username, password, email);
-    }
 
     static void addToCart(Products a){
-        if (didLogin) {
+        if (User.didLogin) {
             if ((a.stock - 1) >= 0) {
 
                 myCart.add(a);
@@ -31,7 +28,7 @@ public abstract class Cart extends User {
     //Overloading
     static void addToCart(Products a, int adet){
 
-        if (didLogin) {
+        if (User.didLogin) {
             if ((a.stock - adet) >= 0) {
 
                 myCart.add(a);
@@ -50,7 +47,7 @@ public abstract class Cart extends User {
 
     static void listCart(){
 
-        if (didLogin) {
+        if (User.didLogin) {
             System.out.println("Products on your cart:");
             int count = 0;
             for (Products a : myCart) {

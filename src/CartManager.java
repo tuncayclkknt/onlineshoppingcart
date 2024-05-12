@@ -1,12 +1,8 @@
 public abstract class CartManager extends Cart{
 
-    public CartManager(String name, String surname, String username, String password, String email) {
-        super(name, surname, username, password, email);
-    }
-
     static void changeItem(Products a, int newQuantity){
 
-        if (didLogin) {
+        if (User.didLogin) {
             if (myCart.contains(a)) {
                 int indexOfProduct = myCart.indexOf(a);
                 //totalPrice += quantity.get(indexOfProduct) * a.price;
@@ -31,7 +27,7 @@ public abstract class CartManager extends Cart{
 
 
     static void clearCart(){
-        if (didLogin){
+        if (User.didLogin){
             myCart.clear();
             quantity.clear();
             Cart.totalPrice = 0;
