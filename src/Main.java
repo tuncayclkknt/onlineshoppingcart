@@ -42,7 +42,7 @@ public class Main {
 
         Cart.addToCart(p1, 10);
         Cart.addToCart(p2, 12);
-        //adet stocktan fazla olduğunda hata veriyor try cath yapılacak (bir şeyler yaptım gerek kalmadı ama neden bilmiyorum)
+        Cart.addToCart(p3);
 
         System.out.println("---------------------------");
         for(Products x:Cart.myCart)
@@ -51,10 +51,7 @@ public class Main {
 
         CartManager.changeItem(p1,5);
         CartManager.changeItem(p2,7);
-        //sepetteki "p1" ürününün adetini güncellemeye yarıyor.
-        // if else eklenecek eğer sepetteyse adet değiştir diye (eklendi ) enes
 
-        // totalprice değişimleri ayarlandı ama stock değişimleri AYARLANMADI (tuncay)(sıkıldığım için) //ayarlandı (enes)
 
         //CartManager.clearCart(); //çalışıyorr
 
@@ -69,6 +66,5 @@ public class Main {
         System.out.println();
 
         Products.listProducts();
-        //sepete eklenen adet kısmında sorun var // hallettimmmm(tuncay)
     }
 }

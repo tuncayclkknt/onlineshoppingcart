@@ -10,6 +10,25 @@ public abstract class Cart extends User {
         super(name, surname, username, password, email);
     }
 
+    static void addToCart(Products a){
+        if (didLogin) {
+            if ((a.stock - 1) >= 0) {
+
+                myCart.add(a);
+                quantity.add(1);
+                totalPrice += a.getPrice() * quantity.get(myCart.indexOf(a));
+                a.setStock(a.stock - 1);
+                System.out.printf("%dx %s has been added your cart.%n", 1, a.getName().toLowerCase());
+            } else {
+                System.out.printf("We have only %d stocks for %s." +
+                        "Please wait for updating stocks or change the quantities of the product", a.getStock(), a.getName().toLowerCase());
+            }
+        }else {
+            System.out.println("You have to log in!!!");
+        }
+    }
+
+    //Overloading
     static void addToCart(Products a, int adet){
 
         if (didLogin) {
@@ -19,9 +38,10 @@ public abstract class Cart extends User {
                 quantity.add(adet);
                 totalPrice += a.getPrice() * quantity.get(myCart.indexOf(a));
                 a.setStock(a.stock - adet);
-                System.out.printf("%dx %s has been added your cart.%n",adet,a.getName());
+                System.out.printf("%dx %s has been added your cart.%n",adet,a.getName().toLowerCase());
             } else {
-                System.out.printf("Adet stocktan fazla olamaz!!!%nÜrün %s Stoğu: %d%nAdeti: %d%n%n", a.getName().toLowerCase(), a.stock, adet);
+                System.out.printf("We have only %d stocks for %s." +
+                        "Please wait for updating stocks or change the quantities of the product", a.getStock(), a.getName().toLowerCase());
             }
         }else{
             System.out.println("You have to log in!!!");
@@ -35,7 +55,7 @@ public abstract class Cart extends User {
             int count = 0;
             for (Products a : myCart) {
                 if (quantity.get(count) != 0) {
-                    System.out.printf("Name: %s%nAdet: %d%n%n", a.getName(), quantity.get(count));
+                    System.out.printf("Name: %s%nQuantities: %d%n%n", a.getName(), quantity.get(count));
                 }
                 count++;
             }
