@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Products {
+public class Products implements Discount{
     protected String name;
     protected String description;
     protected double price;
@@ -23,11 +23,17 @@ public class Products {
     static void updateStock(Products a, int newQuantities){
         a.setStock(newQuantities);
         InitialStocks.set(product.indexOf(a),newQuantities);
-        System.out.printf("Stock of %s has been updated to %d!%n",a.getName().toLowerCase(), newQuantities);
+        System.out.printf("Stock of %s has been updated to %d!%n%n",a.getName().toLowerCase(), newQuantities);
     }
 
     static void addProduct(Products a){
         product.add(a);
+    }
+
+    @Override
+    public void discount(double discountRate){
+        setPrice(getPrice() * discountRate);
+        System.out.printf("There is %.1f percent discount on %s.%n%n",discountRate*100, getName().toLowerCase());
     }
 
     static void listProducts(){

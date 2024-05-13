@@ -38,6 +38,8 @@ public class Main {
         Products.addProduct(p2);
         Products.addProduct(p3);
 
+        p1.discount(0.31);
+
         Products.updateStock(p1,12);
 
         Products.listProducts();
