@@ -1,4 +1,4 @@
-public interface Discount {
+public interface IDiscount {
 
     public void discount(double discountRate);
 

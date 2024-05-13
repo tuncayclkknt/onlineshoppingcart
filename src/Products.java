@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Products implements Discount{
+public class Products implements IDiscount {
     protected String name;
     protected String description;
     protected double price;
