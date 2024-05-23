@@ -10,7 +10,6 @@ public class Main {
 
 
         u1.register("Tuncay","Çelikkanat","tncy","şifre","tuncayclkknt@gmail.com");
-//        Products insertP = new Products("laptop","i7 13900k + 4090 super",59999,3);
 
         u1.login("tncy","şifre");
 //        u1.logout();
@@ -21,7 +20,7 @@ public class Main {
 //
 //        InsertData insert = new InsertData();
 //        insert.insertUsers(u1);
-//        insert.insertProduct(insertP);
+//
 //
 //        SelecetData select = new SelecetData();
 //        select.selectUser();
