@@ -8,10 +8,12 @@ import java.util.ArrayList;
 public abstract class Cart{
     static double totalPrice = 0;
 
+    // sepetteki ürünleri ve onların miktarlarını özdeş indexlerde tutar
     static ArrayList<Products> myCart = new ArrayList<>();
     static ArrayList<Integer> quantity = new ArrayList<>();
 
 
+    // sepete 1 adet belirtilen üründen ekler
     static void addToCart(Products a){
         if (User.didLogin) {
             if ((a.stock - 1) >= 0) {
@@ -37,20 +39,21 @@ public abstract class Cart{
         }
     }
 
+    // sepete belirtilen üründen belirtilen miktar kadar ekler
     //Overloading
-    static void addToCart(Products a, int adet){
+    static void addToCart(Products a, int Quantity){
 
         if (User.didLogin) {
-            if ((a.stock - adet) >= 0) {
+            if ((a.stock - Quantity) >= 0) {
 
                 myCart.add(a);
-                quantity.add(adet);
+                quantity.add(Quantity);
                 totalPrice += a.getPrice() * quantity.get(myCart.indexOf(a));
-                a.setStock(a.stock - adet);
-                System.out.printf("%dx %s has been added your cart.%n",adet,a.getName().toLowerCase());
+                a.setStock(a.stock - Quantity);
+                System.out.printf("%dx %s has been added your cart.%n", Quantity,a.getName().toLowerCase());
 
                 InsertData insert = new InsertData();
-                insert.insertCart(a,adet);
+                insert.insertCart(a, Quantity);
 
                 UpdataData update = new UpdataData();
                 update.updateStockDataBase(a,a.getStock());
@@ -64,6 +67,7 @@ public abstract class Cart{
         }
     }
 
+    // sepetteki ürünleri listeler
     static void listCart(){
 
         if (User.didLogin) {

@@ -17,6 +17,7 @@ public class SelecetData {
         return conn;
     }
 
+    // kullanıcı tablosundaki herkesi yazdırır
     public void selectUser(){
         String sql = "SELECT * FROM Users";
 
@@ -39,6 +40,7 @@ public class SelecetData {
         }
     }
 
+    // ürün tablsoundaki her şeyi yazdırır
     public void selectProducts(){
         String sql = "SELECT * FROM Products";
 

@@ -21,6 +21,7 @@ public class UpdataData {
     }
     //---------------------------- User Manager ----------------------------------------------------
 
+    // database kayıtlı username updateler
     public void updateUsernameDataBase(String oldUsername, String newUsername){
         String sql = "UPDATE Users SET username = ? WHERE username = ?";
         try {
@@ -41,6 +42,7 @@ public class UpdataData {
         }
     }
 
+    // database kayıtlı password updateler
     public void updatePasswordDataBase(String username, String newPassword){
         String sql = "UPDATE Users SET password = ? WHERE username = ?";
         try {
@@ -61,6 +63,7 @@ public class UpdataData {
         }
     }
 
+    // database kayıtlı email updateler
     public void updateEmailDataBase(String newEmail){
         String sql = "UPDATE Users SET email = ? WHERE username = ?";
         try {
@@ -82,6 +85,7 @@ public class UpdataData {
         }
     }
 
+    // database kayıtlı isim ve soyisim updateler
     public void updateNameAndSurnameDataBase(String newName, String newSurname){
         String sql = "UPDATE Users\n" +
                 "SET name = ?, surname = ?\n" +
@@ -106,6 +110,7 @@ public class UpdataData {
     }
 //---------------------------- Products and Cart ----------------------------------------------------
 
+    // database kayıtlı ürünün stoğunu updateler
     public void updateStockDataBase(Products a, int newQuantities){
 
         String sql = "UPDATE Products SET stock = ? WHERE productId = ?";
@@ -129,6 +134,7 @@ public class UpdataData {
 
     }
 
+    // database kayıtlı ürünün açıklamısını updateler
     public void updateDescriptionDataBase(Products a, String desctiption){
 
         String sql = "UPDATE Products SET description = ? WHERE productId = ?";
@@ -151,6 +157,7 @@ public class UpdataData {
         }
     }
 
+    // database kayıtlı ürünün ismini updateler
     public void updateNameDataBase(Products a, String name){
 
         String sql = "UPDATE Products SET name = ? WHERE productId = ?";
@@ -173,6 +180,7 @@ public class UpdataData {
         }
     }
 
+    // database kayıtlı ürünün fiyatını updateler
     public void updatePriceDataBase(Products a, double price){
 
         String sql = "UPDATE Products SET price = ? WHERE productId = ?";
@@ -195,6 +203,7 @@ public class UpdataData {
         }
     }
 
+    // database kayıtlı ürünün sepetteki miktarını updateler
     public void updateQuantityOnCartDataBase(Products a, int quantity){
         String sql = "UPDATE Cart SET quantity = ? WHERE productId = ?";
 
@@ -216,6 +225,8 @@ public class UpdataData {
         }
     }
 
+    /* database kayıtlı ürünün sepetteki fiyatı updateler, sepetteki ürün değişimlerinde
+     fiyatı dengelemek için kullanıldı */
     public void updateCartPriceDataBase(Products a, int quantity){
         String sql = "UPDATE Cart SET price = ? WHERE productId = ?";
 

@@ -5,6 +5,7 @@ import DataBaseConnection.UpdataData;
 
 public abstract class CartManager extends Cart{
 
+    // sepetteki ürünün miktarını ve gerekli değişimleri yapar, toplam fiyat, stok...
     static void changeItem(Products a, int newQuantity){
         if (User.didLogin) {
             if (myCart.contains(a)) {
@@ -34,7 +35,7 @@ public abstract class CartManager extends Cart{
         }
     }
 
-
+    // sepeti boşaltır
     static void clearCart(){
         if (User.didLogin){
             myCart.clear();

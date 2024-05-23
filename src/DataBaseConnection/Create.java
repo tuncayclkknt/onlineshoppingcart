@@ -4,6 +4,7 @@ import java.sql.*;
 
 public class Create {
 
+    // yeni bir database oluşturur
     public static void createNewDatabase(String fileName){
         String url = "jdbc:sqlite:C:/Users/HUAWEİ/OneDrive/Masaüstü/cartDatabase/" + fileName;
 
@@ -19,6 +20,7 @@ public class Create {
         }
     }
 
+    // kullanıcı tablosu oluşturur
     public static void createUserTable(){
         String url = "jdbc:sqlite:C:/Users/HUAWEİ/OneDrive/Masaüstü/cartDatabase/Deneme1";
         String sql = "CREATE TABLE IF NOT EXISTS Users (\n"
@@ -39,6 +41,7 @@ public class Create {
         }
     }
 
+    // ürün tablosu oluşturur
     public static void createProductTable(){
         String url = "jdbc:sqlite:C:/Users/HUAWEİ/OneDrive/Masaüstü/cartDatabase/Deneme1";
         String sql = "CREATE TABLE IF NOT EXISTS Products (\n"
@@ -58,6 +61,7 @@ public class Create {
         }
     }
 
+    // sepet tablosu oluşturur
     public static void createCartTable(){
         String url = "jdbc:sqlite:C:/Users/HUAWEİ/OneDrive/Masaüstü/cartDatabase/Deneme1";
         String sql = "CREATE TABLE IF NOT EXISTS Cart (\n"

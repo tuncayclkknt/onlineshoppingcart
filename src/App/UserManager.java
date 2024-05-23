@@ -9,19 +9,22 @@ import java.util.ArrayList;
 
 public class UserManager extends User {
 
+    // her kullanıcıya özgü artan bir id verir, ex: 1,2,3,4,...
     private static int nextID = 1;
     private int userID;
 
+    //kullanıcıadlarını ve şifrelerini özdeş indexlerde tutar
     static ArrayList<String> usernames = new ArrayList<>();
     static ArrayList<String> passwords = new ArrayList<>();
 
+    // giriş yapmış olan kullanıcının kullanıcıadını tutar, bazı methodlarda lazım oluyor
     public static String [] loggedInUsername = new String[1];
 
     public UserManager(String name, String surname, String username, String password, String email) {
         super(name, surname, username, password, email);
     }
 
-
+    // yeni bir kullanıcıyı kayıt yapmak için kullanılır
     @Override
     public void register(String name, String surname, String username, String password, String email) {
 
@@ -41,6 +44,7 @@ public class UserManager extends User {
         }
     }
 
+    // çıkış yapmak için kullanılır
     public void logout() {
         didLogin = false;
         loggedInUsername[0] = null;
@@ -49,6 +53,7 @@ public class UserManager extends User {
         delete.dropTable("Cart");
     }
 
+    // giriş yapmak için kullanılır
     @Override
     public void login(String username, String password) {
 
@@ -73,10 +78,11 @@ public class UserManager extends User {
 
     }
 
+    // kullanıcının kayıtlı olan olan yerlerden kullanıcıadını günceller, database veya arraylistlerde
     @Override
     public void updateUsername(String oldUsername, String newUsername) {
 
-        if (didLogin == true) {  // if you don't log in, you cannot update your username
+        if (didLogin == true) {
             if (getUsername().equals(oldUsername)) {
                 this.username = newUsername;
                 usernames.set(usernames.indexOf(oldUsername), newUsername);
@@ -93,7 +99,7 @@ public class UserManager extends User {
         }
     }
 
-    // loginden sonra yapılsınn düzelt -- düzelttim
+    // kullanıcının kayıtlı olan yerlerden şifresini günceller, database veya arraylistlerde
     @Override
     public void updatePassword(String username, String newPassword) {
 
@@ -115,6 +121,7 @@ public class UserManager extends User {
         }
     }
 
+    // kullanıcının kayıtlı olan yerlerden emailini günceller, database veya arraylistlerde
     @Override
     public void updateEmail(String newEmail) {
 
@@ -131,6 +138,7 @@ public class UserManager extends User {
         }
     }
 
+    // kullanıcının kayıtlı olan yerlerden isim ve soyismini günceller, database veya arraylistlerde
     @Override
     public void updateNameAndSurname(String newName, String newSurname) {
         if (didLogin) {

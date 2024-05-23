@@ -7,6 +7,7 @@ public abstract class User {
     protected String name;
     protected String surname;
 
+    // kullınıcının giriş yapma durumunu ifade eder
     static boolean didLogin = false;
 
     public User(String name, String surname,String username, String password, String email) {

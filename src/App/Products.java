@@ -11,9 +11,11 @@ public class Products implements IDiscount {
     protected double price;
     protected int stock;
 
+    // ürünler için benzersiz idler oluşturur
     private static int nextID = 1;
     private int productId;
 
+    // ürünlerin başlangıç stoklarını tutar, bazı kısımlarda lazım oluyor
     static ArrayList<Integer> InitialStocks = new ArrayList<>();
 
     public Products(String name, String description, double price, int stock) {
@@ -25,14 +27,17 @@ public class Products implements IDiscount {
         this.productId = nextID++;
     }
 
+    // ürünleri başlangıç stoklarıyla özdeğer indexlerde tutar
     static ArrayList<Products> product = new ArrayList<>();
 
+    // arrrayliste ve database'e verilen ürünü ekler
     static void addProduct(Products a){
         product.add(a);
         InsertData insert = new InsertData();
         insert.insertProduct(a);
     }
 
+    // ürünün kayıtlı olan yerlerden adını günceller
     static void updateName(Products a, String name){
         a.setName(name);
 
@@ -40,6 +45,7 @@ public class Products implements IDiscount {
         updata.updateNameDataBase(a,name);
     }
 
+    // ürünün kayıtlı olan yerlerden açıklamasını günceller
     static void updateDescription(Products a, String description){
         a.setDescription(description);
 
@@ -47,6 +53,7 @@ public class Products implements IDiscount {
         updata.updateDescriptionDataBase(a,description);
     }
 
+    // ürünün kayıtlı olan yerlerden fiyatını günceller
     static void updatePrice(Products a, double price){
         a.setPrice(price);
 
@@ -54,6 +61,7 @@ public class Products implements IDiscount {
         update.updatePriceDataBase(a,price);
     }
 
+    // ürünün kayıtlı olan yerlerden stoğunu günceller
     static void updateStock(Products a, int newQuantities){
         a.setStock(newQuantities);
         InitialStocks.set(product.indexOf(a),newQuantities);
@@ -69,6 +77,7 @@ public class Products implements IDiscount {
         System.out.printf("There is %.1f percent discount on %s.%n%n",discountRate*100, getName().toLowerCase());
     }
 
+    // ürünleri listelemeye yarar
     static void listProducts(){
         int count = 1;
         for (Products a : product){

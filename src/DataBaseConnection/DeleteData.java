@@ -16,6 +16,7 @@ public class DeleteData {
         return conn;
     }
 
+    // kullanıcı tablosundan belirtilen kullanıcıyı siler
     public void deleteUser(String username){
         String sql = "DELETE FROM Users WHERE username = ?";
         try{
@@ -33,6 +34,7 @@ public class DeleteData {
         }
     }
 
+    // ürün tablosundan belirtilen ürünü siler
     public void deleteProduct(int productId){
         String sql = "DELETE FROM Products WHERE productId = ?";
         try{
@@ -50,6 +52,7 @@ public class DeleteData {
         }
     }
 
+    // belirtilen tabloyu siler
     public void dropTable(String tableName) {
         String sql = "DROP TABLE IF EXISTS " + tableName;
 
@@ -64,6 +67,7 @@ public class DeleteData {
         }
     }
 
+    // ürün tablosunun içeriğini siler, clearCart methodu için kullanıldı
     public void deleteCartItems(){
         String sql = "DELETE FROM Cart;\n";
         try (Connection conn = this.connect();

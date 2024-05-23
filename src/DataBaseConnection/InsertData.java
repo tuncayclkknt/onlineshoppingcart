@@ -16,6 +16,7 @@ public class InsertData {
         return conn;
     }
 
+    // kullanıcı tablsuna kullanıcı girdisi yapar
     public void insertUsers(User u){
         String sql = "INSERT INTO Users(name, surname,username,password,email) VALUES(?,?,?,?,?)";
         try{
@@ -33,6 +34,7 @@ public class InsertData {
         }
     }
 
+    // ürün tablsuna ürün girdisi yapar
     public void insertProduct(Products a){
         String sql = "INSERT INTO Products(productId,name, description, price, stock) VALUES(?,?,?,?,?)";
         try{
@@ -50,6 +52,7 @@ public class InsertData {
         }
     }
 
+    // sepet tablosuna ürün girdisi yapar
     public void insertCart(Products a, int quantity){
         String sql = "INSERT INTO Cart(productId ,productName, quantity, price) VALUES(?,?,?,?)";
         try{
