@@ -61,4 +61,24 @@ public class SelecetData {
         }
     }
 
+    // sepet tablsoundaki her şeyi yazdırır
+    public void selectProductsOnCart(){
+        String sql = "SELECT * FROM Cart";
+
+        try{
+            Connection conn = this.connect();
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+
+            while (rs.next()){
+                System.out.println(rs.getInt("productId") + "\t" +
+                        rs.getString("productName") + "\t" +
+                        rs.getInt("quantity") + "\t" +
+                        rs.getDouble("price"));
+            }
+        }catch (SQLException e){
+            System.out.println(e.getMessage());
+        }
+    }
+
 }
