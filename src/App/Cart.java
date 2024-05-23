@@ -1,3 +1,8 @@
+package App;
+
+import DataBaseConnection.InsertData;
+import DataBaseConnection.UpdataData;
+
 import java.util.ArrayList;
 
 public abstract class Cart{
@@ -16,6 +21,13 @@ public abstract class Cart{
                 totalPrice += a.getPrice() * quantity.get(myCart.indexOf(a));
                 a.setStock(a.stock - 1);
                 System.out.printf("%dx %s has been added your cart.%n", 1, a.getName().toLowerCase());
+
+                InsertData insert = new InsertData();
+                insert.insertCart(a,1);
+
+                UpdataData update = new UpdataData();
+                update.updateStockDataBase(a,a.getStock());
+
             } else {
                 System.out.printf("We have only %d stocks for %s." +
                         "Please wait for updating stocks or change the quantities of the product", a.getStock(), a.getName().toLowerCase());
@@ -36,6 +48,13 @@ public abstract class Cart{
                 totalPrice += a.getPrice() * quantity.get(myCart.indexOf(a));
                 a.setStock(a.stock - adet);
                 System.out.printf("%dx %s has been added your cart.%n",adet,a.getName().toLowerCase());
+
+                InsertData insert = new InsertData();
+                insert.insertCart(a,adet);
+
+                UpdataData update = new UpdataData();
+                update.updateStockDataBase(a,a.getStock());
+
             } else {
                 System.out.printf("We have only %d stocks for %s." +
                         "Please wait for updating stocks or change the quantities of the product", a.getStock(), a.getName().toLowerCase());
@@ -48,7 +67,7 @@ public abstract class Cart{
     static void listCart(){
 
         if (User.didLogin) {
-            System.out.println("Products on your cart:");
+            System.out.println("App.Products on your cart:");
             int count = 0;
             for (Products a : myCart) {
                 if (quantity.get(count) != 0) {

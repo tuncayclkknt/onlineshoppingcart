@@ -1,3 +1,4 @@
+package App;
 
 public abstract class User {
     protected String username;
@@ -22,8 +23,6 @@ public abstract class User {
     public abstract void updatePassword(String username, String newPassword);
     public abstract void updateEmail(String newEmail);
     public abstract void updateNameAndSurname(String newName, String newSurname);
-    public abstract int getID(); //deneysel
-
 //---------------------------get set----------------------------
         public String getUsername() {
             return username;
