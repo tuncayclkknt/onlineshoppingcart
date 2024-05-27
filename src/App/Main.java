@@ -4,38 +4,31 @@ import DataBaseConnection.*;
 
 public class Main {
     public static void main(String[] args) {
-        UserManager u1 = new UserManager("name","surname","username","password","mail@example.com");
-        UserManager u2 = new UserManager("name","surname","username","password","mail@example.com");
-        UserManager u3 = new UserManager("name","surname","username","password","mail@example.com");
 
+        Create.createUserTable();
+        Create.createProductTable();
+        Create.createCartTable();
+
+        User u1 = new UserManager("name","surname","username","password","mail@example.com");
+        User u2 = new UserManager("name","surname","username","password","mail@example.com");
+        UserManager u3 = new UserManager("name","surname","username","password","mail@example.com");
 
         u1.register("Tuncay","Çelikkanat","tncy","şifre","tuncayclkknt@gmail.com");
 
-        u1.login("tncy","şifre");
+        u1.login("tncy","yeniii şifreee");
 //        u1.logout();
 
-//        Create.createNewDatabase("Deneme1");
-//        Create.createUserTable();
-        Create.createProductTable();
-//
-//        InsertData insert = new InsertData();
-//        insert.insertUsers(u1);
-//
-//
 //        SelecetData select = new SelecetData();
 //        select.selectUser();
 //        select.selectProducts();
 
-        DeleteData delete = new DeleteData();
+//        DeleteData delete = new DeleteData();
 //        delete.deleteUser("tncy");
+
 //        u1.updateNameAndSurname("Nazlı","Tekin");
-//        u1.updatePassword("tncy","ywniii şifreee");
-//        u1.updateUsername("tncy","yeniii usernamee");
-
-//        delete.deleteProduct(1);
-
-
-
+//        u1.updatePassword("yeniii usernamee","yeniii şifreee");
+//        u1.updateUsername("yeniii usernamee","tncy");
+//        u1.updateEmail("playboy@lsduj");
 
     //-------------------------------------------------------------------------
 
@@ -64,56 +57,53 @@ public class Main {
 //
         Products p1 = new Products("Kalem","yazıyor işte",120.99,10);
         Products p2 = new Products("Silgi","siliyor işte", 9.99,13);
-//        Products p3 = new Products("Kaset","çalıyor işte ama eski",999.10,1);
-        Products deneme = new Products("deneme", "denemeeee", 100,10);
-
-
+        Products p3 = new Products("Kaset","çalıyor işte ama eski",999.10,1);
 
         Products.addProduct(p1);
         Cart.addToCart(p1);
 
         Products.addProduct(p2);
         Cart.addToCart(p2,4);
-        System.out.println(p2.getStock());
 
-        Products.addProduct(deneme);
-        Cart.addToCart(deneme);
+//        System.out.println(p2.getStock());
+//
+        Products.addProduct(p3);
+        Cart.addToCart(p3,1);
 
 //        System.out.println(p2.getStock());
 //        System.out.println(p1.getStock());
-        CartManager.changeItem(p2,6);
+        CartManager.clearCart();
+        CartManager.changeQuantityOfItem(p2,6);
 //        CartManager.clearCart();
-        System.out.println(p2.getStock());
+//        System.out.println(p2.getStock());
 //        CartManager.changeItem(p1,2);
 //        System.out.println(p2.getStock());
 //        System.out.println(p1.getStock());
 
-        for (int x:Products.InitialStocks)
-            System.out.println(x);
-        System.out.println("--------");
-
-        for (Products x: Products.product)
-            System.out.println(x.getName());
+//        for (int x:Products.InitialStocks)
+//            System.out.println(x);
+//        System.out.println("--------");
+//
+//        for (Products x: Products.product)
+//            System.out.println(x.getName());
 
 
 //
-//        Products.updateStock(deneme,15);
+        Products.updateStock(p3,15);
 //        System.out.println(deneme.getStock());
 //
-//        Products.updateDescription(deneme,"helooo");
+        Products.updateDescription(p3,"helooo");
 //        System.out.println(deneme.getDescription());
 //
-//        Products.updateName(deneme,"Yeni isim");
+        Products.updateName(p3,"Yeni isim");
 //        System.out.println(deneme.getName());
 //
-//        Products.updatePrice(deneme, 10.99);
+        Products.updatePrice(p3, 10.99);
 //        System.out.println(deneme.price);
 //
 //        Products.addProduct(p1);
 //        Products.addProduct(p2);
 //        Products.addProduct(p3);
-//
-//        p1.discount(0.31);
 //
 //        Products.updateStock(p1,12);
 //

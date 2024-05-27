@@ -22,7 +22,7 @@ public class UpdataData {
     //---------------------------- User Manager ----------------------------------------------------
 
     // database kayıtlı username updateler
-    public void updateUsernameDataBase(String oldUsername, String newUsername){
+    public void updateUsernameDatabase(String oldUsername, String newUsername){
         String sql = "UPDATE Users SET username = ? WHERE username = ?";
         try {
             Connection conn = this.connect();
@@ -32,18 +32,18 @@ public class UpdataData {
 
             int affectedRows = pstmt.executeUpdate();
             if (affectedRows > 0) {
-                System.out.println("Username updated successfully.");
+                System.out.printf("Your username updated to \"%s\" from \"%s\"!%n", newUsername, oldUsername);
             } else {
                 System.out.println("User not found.");
             }
 
         } catch(SQLException e){
-            System.out.println(e.getMessage());
+            System.out.println("There is a mistake on username!");
         }
     }
 
     // database kayıtlı password updateler
-    public void updatePasswordDataBase(String username, String newPassword){
+    public void updatePasswordDatabase(String username, String newPassword){
         String sql = "UPDATE Users SET password = ? WHERE username = ?";
         try {
             Connection conn = this.connect();
@@ -59,12 +59,12 @@ public class UpdataData {
             }
 
         } catch(SQLException e){
-            System.out.println(e.getMessage());
+            System.out.println("There is a mistake on password!");
         }
     }
 
     // database kayıtlı email updateler
-    public void updateEmailDataBase(String newEmail){
+    public void updateEmailDatabase(String newEmail){
         String sql = "UPDATE Users SET email = ? WHERE username = ?";
         try {
             Connection conn = this.connect();
@@ -75,7 +75,7 @@ public class UpdataData {
 
             int affectedRows = pstmt.executeUpdate();
             if (affectedRows > 0) {
-                System.out.println("Email updated successfully.");
+                System.out.printf("Your email updated to \"%s\"!%n", newEmail);
             } else {
                 System.out.println("Email cannot change.");
             }
@@ -86,7 +86,7 @@ public class UpdataData {
     }
 
     // database kayıtlı isim ve soyisim updateler
-    public void updateNameAndSurnameDataBase(String newName, String newSurname){
+    public void updateNameAndSurnameDatabase(String newName, String newSurname){
         String sql = "UPDATE Users\n" +
                 "SET name = ?, surname = ?\n" +
                 "WHERE username = ?;";
@@ -111,7 +111,7 @@ public class UpdataData {
 //---------------------------- Products and Cart ----------------------------------------------------
 
     // database kayıtlı ürünün stoğunu updateler
-    public void updateStockDataBase(Products a, int newQuantities){
+    public void updateStockDatabase(Products a, int newQuantities){
 
         String sql = "UPDATE Products SET stock = ? WHERE productId = ?";
 
@@ -135,7 +135,7 @@ public class UpdataData {
     }
 
     // database kayıtlı ürünün açıklamısını updateler
-    public void updateDescriptionDataBase(Products a, String desctiption){
+    public void updateDescriptionDatabase(Products a, String desctiption){
 
         String sql = "UPDATE Products SET description = ? WHERE productId = ?";
 
@@ -158,7 +158,7 @@ public class UpdataData {
     }
 
     // database kayıtlı ürünün ismini updateler
-    public void updateNameDataBase(Products a, String name){
+    public void updateNameDatabase(Products a, String name){
 
         String sql = "UPDATE Products SET name = ? WHERE productId = ?";
 
@@ -181,7 +181,7 @@ public class UpdataData {
     }
 
     // database kayıtlı ürünün fiyatını updateler
-    public void updatePriceDataBase(Products a, double price){
+    public void updatePriceDatabase(Products a, double price){
 
         String sql = "UPDATE Products SET price = ? WHERE productId = ?";
 
@@ -204,7 +204,7 @@ public class UpdataData {
     }
 
     // database kayıtlı ürünün sepetteki miktarını updateler
-    public void updateQuantityOnCartDataBase(Products a, int quantity){
+    public void updateQuantityOnCartDatabase(Products a, int quantity){
         String sql = "UPDATE Cart SET quantity = ? WHERE productId = ?";
 
         try {
@@ -227,7 +227,7 @@ public class UpdataData {
 
     /* database kayıtlı ürünün sepetteki fiyatı updateler, sepetteki ürün değişimlerinde
      fiyatı dengelemek için kullanıldı */
-    public void updateCartPriceDataBase(Products a, int quantity){
+    public void updateCartPriceDatabase(Products a, int quantity){
         String sql = "UPDATE Cart SET price = ? WHERE productId = ?";
 
         try {

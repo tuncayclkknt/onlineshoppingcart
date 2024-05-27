@@ -1,11 +1,12 @@
 package App;
 
 import DataBaseConnection.InsertData;
+import DataBaseConnection.SelecetData;
 import DataBaseConnection.UpdataData;
 
 import java.util.ArrayList;
 
-public class Products implements IDiscount {
+public class Products{
     protected String name;
     protected String description;
     protected double price;
@@ -25,6 +26,7 @@ public class Products implements IDiscount {
         this.stock = stock;
         InitialStocks.add(stock);
         this.productId = nextID++;
+
     }
 
     // ürünleri başlangıç stoklarıyla özdeğer indexlerde tutar
@@ -33,6 +35,7 @@ public class Products implements IDiscount {
     // arrrayliste ve database'e verilen ürünü ekler
     static void addProduct(Products a){
         product.add(a);
+
         InsertData insert = new InsertData();
         insert.insertProduct(a);
     }
@@ -42,7 +45,7 @@ public class Products implements IDiscount {
         a.setName(name);
 
         UpdataData updata = new UpdataData();
-        updata.updateNameDataBase(a,name);
+        updata.updateNameDatabase(a,name);
     }
 
     // ürünün kayıtlı olan yerlerden açıklamasını günceller
@@ -50,7 +53,7 @@ public class Products implements IDiscount {
         a.setDescription(description);
 
         UpdataData updata = new UpdataData();
-        updata.updateDescriptionDataBase(a,description);
+        updata.updateDescriptionDatabase(a,description);
     }
 
     // ürünün kayıtlı olan yerlerden fiyatını günceller
@@ -58,7 +61,7 @@ public class Products implements IDiscount {
         a.setPrice(price);
 
         UpdataData update = new UpdataData();
-        update.updatePriceDataBase(a,price);
+        update.updatePriceDatabase(a,price);
     }
 
     // ürünün kayıtlı olan yerlerden stoğunu günceller
@@ -68,23 +71,14 @@ public class Products implements IDiscount {
         System.out.printf("Stock of %s has been updated to %d!%n",a.getName().toLowerCase(), newQuantities);
 
         UpdataData updata = new UpdataData();
-        updata.updateStockDataBase(a,newQuantities);
+        updata.updateStockDatabase(a,newQuantities);
     }
 
-    @Override
-    public void discount(double discountRate){
-        setPrice(getPrice() * discountRate);
-        System.out.printf("There is %.1f percent discount on %s.%n%n",discountRate*100, getName().toLowerCase());
-    }
 
     // ürünleri listelemeye yarar
     static void listProducts(){
-        int count = 1;
-        for (Products a : product){
-            System.out.printf("%d. product;%nName: %s%nDescription: %s%nPrice: %.2f TL%nStock: %d%n%n"
-            , count, a.getName(), a.getDescription(), a.getPrice(),a.getStock());
-            count++;
-        }
+        SelecetData select = new SelecetData();
+        select.selectProducts();
     }
 
 

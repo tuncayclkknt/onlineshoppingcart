@@ -12,7 +12,6 @@ public abstract class Cart{
     static ArrayList<Products> myCart = new ArrayList<>();
     static ArrayList<Integer> quantity = new ArrayList<>();
 
-
     // sepete 1 adet belirtilen üründen ekler
     static void addToCart(Products a){
         if (User.didLogin) {
@@ -28,7 +27,7 @@ public abstract class Cart{
                 insert.insertCart(a,1);
 
                 UpdataData update = new UpdataData();
-                update.updateStockDataBase(a,a.getStock());
+                update.updateStockDatabase(a,a.getStock());
 
             } else {
                 System.out.printf("We have only %d stocks for %s." +
@@ -56,7 +55,7 @@ public abstract class Cart{
                 insert.insertCart(a, Quantity);
 
                 UpdataData update = new UpdataData();
-                update.updateStockDataBase(a,a.getStock());
+                update.updateStockDatabase(a,a.getStock());
 
             } else {
                 System.out.printf("We have only %d stocks for %s." +

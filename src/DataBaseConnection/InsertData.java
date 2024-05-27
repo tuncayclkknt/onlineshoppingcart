@@ -17,20 +17,20 @@ public class InsertData {
     }
 
     // kullanıcı tablsuna kullanıcı girdisi yapar
-    public void insertUsers(User u){
+    public void insertUsers(String name, String surname, String username, String password, String email){
         String sql = "INSERT INTO Users(name, surname,username,password,email) VALUES(?,?,?,?,?)";
         try{
             Connection conn = connect();
             PreparedStatement pstmt = conn.prepareStatement(sql);
-            pstmt.setString(1,u.getName());
-            pstmt.setString(2,u.getSurname());
-            pstmt.setString(3,u.getUsername());
-            pstmt.setString(4,u.getPassword());
-            pstmt.setString(5,u.getEmail());
+            pstmt.setString(1,name);
+            pstmt.setString(2,surname);
+            pstmt.setString(3,username);
+            pstmt.setString(4,password);
+            pstmt.setString(5,email);
             pstmt.executeUpdate();
             System.out.println("User registered successfully");
         } catch (SQLException e){
-            System.out.println(e.getMessage());
+            System.out.println("Username or email has already taken");
         }
     }
 

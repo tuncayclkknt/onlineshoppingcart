@@ -6,7 +6,7 @@ import DataBaseConnection.UpdataData;
 public abstract class CartManager extends Cart{
 
     // sepetteki ürünün miktarını ve gerekli değişimleri yapar, toplam fiyat, stok...
-    static void changeItem(Products a, int newQuantity){
+    static void changeQuantityOfItem(Products a, int newQuantity){
         if (User.didLogin) {
             if (myCart.contains(a)) {
                 int indexOfProduct = myCart.indexOf(a);
@@ -18,14 +18,14 @@ public abstract class CartManager extends Cart{
                 }
 
                 quantity.set(indexOfProduct, newQuantity);
-                System.out.println(Products.InitialStocks.get(indexOfProduct));
+
                 a.setStock(Products.InitialStocks.get(indexOfProduct) - newQuantity);
                 System.out.printf("Quantity of %s has been changed to %d.%n",a.getName().toLowerCase(),newQuantity);
 
                 UpdataData update = new UpdataData();
-                update.updateStockDataBase(a,a.getStock());
-                update.updateQuantityOnCartDataBase(a,newQuantity);
-                update.updateCartPriceDataBase(a,newQuantity);
+                update.updateStockDatabase(a,a.getStock());
+                update.updateQuantityOnCartDatabase(a,newQuantity);
+                update.updateCartPriceDatabase(a,newQuantity);
 
             } else {
                 System.out.printf("%s is not found on your cart!!!%n", a.getName().toLowerCase());
@@ -51,7 +51,7 @@ public abstract class CartManager extends Cart{
             for (int i=0; i<Products.product.size(); i++){
                 Products.product.get(i).setStock(Products.InitialStocks.get(i));
 
-                updata.updateStockDataBase(Products.product.get(i),Products.InitialStocks.get(i));
+                updata.updateStockDatabase(Products.product.get(i),Products.InitialStocks.get(i));
             }
 
         }else {

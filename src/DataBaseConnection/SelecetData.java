@@ -3,8 +3,8 @@ package DataBaseConnection;
 import java.sql.*;
 import java.util.ArrayList;
 
+
 public class SelecetData {
-    private ArrayList<String> userData = new ArrayList<>();
 
     private Connection connect(){
         String url = "jdbc:sqlite:C:/Users/HUAWEİ/OneDrive/Masaüstü/cartDatabase/Deneme1";
@@ -38,6 +38,36 @@ public class SelecetData {
         } catch(SQLException e){
             System.out.println(e.getMessage());
         }
+    }
+
+    private ArrayList<String> userData = new ArrayList<>();
+
+    public boolean selectUser(String username, String password){
+        String sql = "SELECT * FROM Users WHERE username = ? AND password = ?";
+
+        boolean doesUserExists = false;
+        try{
+            Connection conn = this.connect();
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, username);
+            pstmt.setString(2, password);
+            ResultSet rs = pstmt.executeQuery();
+
+            if(rs.next()){
+                doesUserExists = true;
+                userData.add(rs.getString("name"));
+                userData.add(rs.getString("surname"));
+                userData.add(rs.getString("username"));
+                userData.add(rs.getString("password"));
+                userData.add(rs.getString("email"));
+            } else {
+                doesUserExists = false;
+            }
+            conn.close();
+        } catch(SQLException e){
+            System.out.println(e.getMessage());
+        }
+        return doesUserExists;
     }
 
     // ürün tablsoundaki her şeyi yazdırır
@@ -81,4 +111,7 @@ public class SelecetData {
         }
     }
 
+    public ArrayList<String> getUserData() {
+        return userData;
+    }
 }

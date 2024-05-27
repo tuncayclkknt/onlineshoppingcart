@@ -1,7 +1,8 @@
 package App;
 
-import DataBaseConnection.Create;
 import DataBaseConnection.DeleteData;
+import DataBaseConnection.InsertData;
+import DataBaseConnection.SelecetData;
 import DataBaseConnection.UpdataData;
 
 import java.util.ArrayList;
@@ -9,13 +10,10 @@ import java.util.ArrayList;
 
 public class UserManager extends User {
 
-    // her kullanıcıya özgü artan bir id verir, ex: 1,2,3,4,...
-    private static int nextID = 1;
-    private int userID;
 
     //kullanıcıadlarını ve şifrelerini özdeş indexlerde tutar
-    static ArrayList<String> usernames = new ArrayList<>();
-    static ArrayList<String> passwords = new ArrayList<>();
+//    static ArrayList<String> usernames = new ArrayList<>();
+//    static ArrayList<String> passwords = new ArrayList<>();
 
     // giriş yapmış olan kullanıcının kullanıcıadını tutar, bazı methodlarda lazım oluyor
     public static String [] loggedInUsername = new String[1];
@@ -28,52 +26,47 @@ public class UserManager extends User {
     @Override
     public void register(String name, String surname, String username, String password, String email) {
 
-        if (usernames.contains(username))
-            System.out.println("This username already taken, please try another usernames.");
-        else {
-            this.username = username;
-            usernames.add(username);
-            this.password = password;
-            passwords.add(password);
+        InsertData insert = new InsertData();
+        insert.insertUsers(name, surname, username, password,email);
 
-            this.email = email;
-            this.name = name;
-            this.surname = surname;
-            System.out.println("Account created, now you can log in.");
-            this.userID = nextID++;
-        }
     }
 
     // çıkış yapmak için kullanılır
     public void logout() {
         didLogin = false;
         loggedInUsername[0] = null;
+        System.out.println("You logged out successfully");
 
-        DeleteData delete = new DeleteData();
-        delete.dropTable("Cart");
+        CartManager.clearCart();
+
+        setName("");
+        setSurname("");
+        setUsername("");
+        setPassword("");
+        setEmail("");
     }
 
     // giriş yapmak için kullanılır
     @Override
     public void login(String username, String password) {
 
-        if (usernames.contains(username)) {
-            int indexOfUsername = usernames.indexOf(username);
+        ArrayList<String> userData;
 
-            if (passwords.get(indexOfUsername).equals(password)) {
-                didLogin = true;
-                System.out.printf("You logged in, %s!%n", name);
+        SelecetData select = new SelecetData();
+        didLogin = select.selectUser(username,password);
 
-                loggedInUsername[0] = username;
+        if(didLogin){
+            System.out.println("You've logged in successfully");
+            loggedInUsername[0] = username;
 
-                Create.createCartTable();
-
-            } else {
-                System.out.println("There is a mistake on your password!");
-            }
-
+            userData = select.getUserData();
+            setName(userData.get(0));
+            setSurname(userData.get(1));
+            setUsername(userData.get(2));
+            setPassword(userData.get(3));
+            setEmail(userData.get(4));
         } else {
-            System.out.println("This username is not fount!");
+            System.out.println("Password or username is wrong");
         }
 
     }
@@ -81,22 +74,21 @@ public class UserManager extends User {
     // kullanıcının kayıtlı olan olan yerlerden kullanıcıadını günceller, database veya arraylistlerde
     @Override
     public void updateUsername(String oldUsername, String newUsername) {
-
-        if (didLogin == true) {
-            if (getUsername().equals(oldUsername)) {
+        if (oldUsername != newUsername){
+            if (didLogin == true) {
                 this.username = newUsername;
-                usernames.set(usernames.indexOf(oldUsername), newUsername);
-                System.out.printf("Your username updated to \"%s\" from \"%s\"!%n", newUsername, oldUsername);
-
                 UpdataData update = new UpdataData();
-                update.updateUsernameDataBase(oldUsername,newUsername);
+                update.updateUsernameDatabase(oldUsername,newUsername);
+                loggedInUsername[0] = newUsername;
 
             } else {
-                System.out.println("You cannot rewrite another username!!!");
+                System.out.println("YOU HAVE TO LOG IN !!!");
             }
+
         } else {
-            System.out.println("YOU HAVE TO LOG IN !!!");
+            System.out.println("New username must be different!");
         }
+
     }
 
     // kullanıcının kayıtlı olan yerlerden şifresini günceller, database veya arraylistlerde
@@ -105,17 +97,10 @@ public class UserManager extends User {
 
         if (didLogin == true) { // if you don't log in, you cannot update your password
 
-            if (getUsername().equals(username)) {
-                this.password = newPassword;
-                passwords.set(usernames.indexOf(username), newPassword);
-                System.out.println("Your password changed!");
+            this.password = newPassword;
 
-                UpdataData update = new UpdataData();
-                update.updatePasswordDataBase(username,newPassword);
-
-            } else {
-                System.out.println("You cannot rewrite another password!!!");
-            }
+            UpdataData update = new UpdataData();
+            update.updatePasswordDatabase(username,newPassword);
         } else {
             System.out.println("YOU HAVE TO LOG IN !!!");
         }
@@ -128,10 +113,9 @@ public class UserManager extends User {
         if (didLogin == true) {
 
             this.email = newEmail;
-            System.out.printf("Your email updated to \"%s\"!%n", email);
 
             UpdataData update = new UpdataData();
-            update.updateEmailDataBase(newEmail);
+            update.updateEmailDatabase(newEmail);
 
         } else {
             System.out.println("YOU HAVE TO LOG IN !!!");
@@ -147,7 +131,7 @@ public class UserManager extends User {
             System.out.printf("Your name and surname updated as %s and %s%n", name, surname);
 
             UpdataData update = new UpdataData();
-            update.updateNameAndSurnameDataBase(newName,newSurname);
+            update.updateNameAndSurnameDatabase(newName,newSurname);
         } else {
             System.out.println("YOU HAVE TO LOG IN !!!");
         }
