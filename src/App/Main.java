@@ -38,7 +38,7 @@ public class Main {
         Cart.addToCart(p3);
 //        Cart.listCart();
         CartManager.changeQuantityOfItem(p1,5);
-//        Cart.listCart();
+        Cart.listCart();
 
     }
 }

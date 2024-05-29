@@ -17,7 +17,7 @@ public class Products{
     private int productId;
 
     // ürünlerin başlangıç stoklarını tutar, bazı kısımlarda lazım oluyor
-    static ArrayList<Integer> InitialStocks = new ArrayList<>();
+    static ArrayList<Integer> initialStocks = new ArrayList<>();
     // ürünleri başlangıç stoklarıyla özdeğer indexlerde tutar
     static ArrayList<Products> product = new ArrayList<>();
 
@@ -26,7 +26,7 @@ public class Products{
         this.description = description;
         this.price = price;
         this.stock = stock;
-        InitialStocks.add(stock);
+        initialStocks.add(stock);
         this.productId = nextID++;
         product.add(this);
 
@@ -61,7 +61,7 @@ public class Products{
     // ürünün kayıtlı olan yerlerden stoğunu günceller
     static void updateStock(Products a, int newQuantities){
         a.setStock(newQuantities);
-        InitialStocks.set(product.indexOf(a),newQuantities);
+        initialStocks.set(product.indexOf(a),newQuantities);
         System.out.printf("Stock of %s has been updated to %d!%n",a.getName().toLowerCase(), newQuantities);
         UpdataData updata = new UpdataData();
         updata.updateStockDatabase(a,newQuantities);

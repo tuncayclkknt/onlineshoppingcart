@@ -1,6 +1,5 @@
 package App;
 
-import DataBaseConnection.DeleteData;
 import DataBaseConnection.InsertData;
 import DataBaseConnection.SelecetData;
 import DataBaseConnection.UpdataData;
@@ -9,11 +8,6 @@ import java.util.ArrayList;
 
 
 public class UserManager extends User {
-
-
-    //kullanıcıadlarını ve şifrelerini özdeş indexlerde tutar
-//    static ArrayList<String> usernames = new ArrayList<>();
-//    static ArrayList<String> passwords = new ArrayList<>();
 
     // giriş yapmış olan kullanıcının kullanıcıadını tutar, bazı methodlarda lazım oluyor
     public static String [] loggedInUsername = new String[1];

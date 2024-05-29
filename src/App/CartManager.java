@@ -19,7 +19,7 @@ public abstract class CartManager extends Cart{
 
                 quantities.set(indexOfProduct, newQuantity);
 
-                a.setStock(Products.InitialStocks.get(indexOfProduct) - newQuantity);
+                a.setStock(Products.initialStocks.get(indexOfProduct) - newQuantity);
                 System.out.printf("Quantity of %s has been changed to %d.%n",a.getName().toLowerCase(),newQuantity);
 
                 UpdataData update = new UpdataData();
@@ -49,8 +49,8 @@ public abstract class CartManager extends Cart{
             UpdataData update = new UpdataData();
 
             for (int i=0; i<Products.product.size(); i++){
-                Products.product.get(i).setStock(Products.InitialStocks.get(i));
-                update.updateStockDatabase(Products.product.get(i),Products.InitialStocks.get(i));
+                Products.product.get(i).setStock(Products.initialStocks.get(i));
+                update.updateStockDatabase(Products.product.get(i),Products.initialStocks.get(i));
             }
 
         }else {
