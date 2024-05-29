@@ -8,7 +8,6 @@ public class Main {
         User u2 = new UserManager("name","surname","username","password","mail@example.com");
         User u3 = new UserManager("name","surname","username","password","mail@example.com");
 
-//        Create.createNewDatabase("Project");
 //        Create.createUserTable();
 //        Create.createProductTable();
 //        Create.createCartTable();
@@ -39,7 +38,7 @@ public class Main {
         Cart.addToCart(p3);
 //        Cart.listCart();
         CartManager.changeQuantityOfItem(p1,5);
-        Cart.listCart();
+//        Cart.listCart();
 
     }
 }

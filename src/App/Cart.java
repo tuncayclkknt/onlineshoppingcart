@@ -41,19 +41,19 @@ public abstract class Cart{
 
     // sepete belirtilen üründen belirtilen miktar kadar ekler
     //Overloading
-    static void addToCart(Products a, int Quantity){
+    static void addToCart(Products a, int quantity){
 
         if (User.didLogin) {
-            if ((a.stock - Quantity) >= 0) {
+            if ((a.stock - quantity) >= 0) {
 
                 myCart.add(a);
-                quantities.add(Quantity);
+                quantities.add(quantity);
                 totalPrice += a.getPrice() * quantities.get(myCart.indexOf(a));
-                a.setStock(a.stock - Quantity);
-                System.out.printf("%dx %s has been added your cart.%n", Quantity,a.getName().toLowerCase());
+                a.setStock(a.stock - quantity);
+                System.out.printf("%dx %s has been added your cart.%n", quantity,a.getName().toLowerCase());
 
                 InsertData insert = new InsertData();
-                insert.insertCart(a, Quantity);
+                insert.insertCart(a, quantity);
 
                 UpdataData update = new UpdataData();
                 update.updateStockDatabase(a,a.getStock());
