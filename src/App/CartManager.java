@@ -12,12 +12,12 @@ public abstract class CartManager extends Cart{
                 int indexOfProduct = myCart.indexOf(a);
 
                 if (newQuantity != 0)
-                    totalPrice -= (quantity.get(indexOfProduct) - newQuantity) * a.price;
+                    totalPrice -= (quantities.get(indexOfProduct) - newQuantity) * a.price;
                 else {
-                    totalPrice -= quantity.get(indexOfProduct) * a.price;
+                    totalPrice -= quantities.get(indexOfProduct) * a.price;
                 }
 
-                quantity.set(indexOfProduct, newQuantity);
+                quantities.set(indexOfProduct, newQuantity);
 
                 a.setStock(Products.InitialStocks.get(indexOfProduct) - newQuantity);
                 System.out.printf("Quantity of %s has been changed to %d.%n",a.getName().toLowerCase(),newQuantity);
@@ -39,19 +39,18 @@ public abstract class CartManager extends Cart{
     static void clearCart(){
         if (User.didLogin){
             myCart.clear();
-            quantity.clear();
+            quantities.clear();
             Cart.totalPrice = 0;
-            System.out.println("Your App.Cart Has Been Cleared!\n");
+            System.out.println("Your cart cleared successfully.\n");
 
             DeleteData delete = new DeleteData();
             delete.deleteCartItems();
 
-            UpdataData updata = new UpdataData();
+            UpdataData update = new UpdataData();
 
             for (int i=0; i<Products.product.size(); i++){
                 Products.product.get(i).setStock(Products.InitialStocks.get(i));
-
-                updata.updateStockDatabase(Products.product.get(i),Products.InitialStocks.get(i));
+                update.updateStockDatabase(Products.product.get(i),Products.InitialStocks.get(i));
             }
 
         }else {

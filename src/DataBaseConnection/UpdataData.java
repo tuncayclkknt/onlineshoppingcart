@@ -9,7 +9,7 @@ public class UpdataData {
     UserManager update = new UserManager("","","","","");
 
     private Connection connect(){
-        String url = "jdbc:sqlite:C:/Users/HUAWEİ/OneDrive/Masaüstü/cartDatabase/Deneme1";
+        String url = "jdbc:sqlite:C:/Users/HUAWEİ/OneDrive/Masaüstü/cartDatabase/Project";
         Connection conn = null;
         try {
             conn = DriverManager.getConnection(url);
@@ -99,7 +99,7 @@ public class UpdataData {
 
             int affectedRows = pstmt.executeUpdate();
             if (affectedRows > 0) {
-                System.out.println("Name and surname updated successfully.");
+                System.out.printf("Your name and surname updated as %s and %s%n", newName, newSurname);
             } else {
                 System.out.println("Name and surname cannot change.");
             }
@@ -123,7 +123,7 @@ public class UpdataData {
 
             int affectedRows = pstmt.executeUpdate();
             if (affectedRows > 0) {
-                System.out.println("Stock updated successfully.");
+
             } else {
                 System.out.println("Stock cannot change.");
             }
@@ -147,7 +147,7 @@ public class UpdataData {
 
             int affectedRows = pstmt.executeUpdate();
             if (affectedRows > 0) {
-                System.out.println("Description updated successfully.");
+                System.out.println("Description of the product updated successfully.");
             } else {
                 System.out.println("Description cannot change.");
             }
@@ -170,7 +170,7 @@ public class UpdataData {
 
             int affectedRows = pstmt.executeUpdate();
             if (affectedRows > 0) {
-                System.out.println("Name updated successfully.");
+                System.out.println("Name of the product updated successfully.");
             } else {
                 System.out.println("Name cannot change.");
             }
@@ -193,7 +193,7 @@ public class UpdataData {
 
             int affectedRows = pstmt.executeUpdate();
             if (affectedRows > 0) {
-                System.out.println("Price updated successfully.");
+                System.out.println("Price of the product updated successfully.");
             } else {
                 System.out.println("Price cannot change.");
             }
@@ -215,7 +215,7 @@ public class UpdataData {
 
             int affectedRows = pstmt.executeUpdate();
             if (affectedRows > 0) {
-                System.out.println("Price updated successfully.");
+
             } else {
                 System.out.println("Price cannot change.");
             }
@@ -238,7 +238,7 @@ public class UpdataData {
 
             int affectedRows = pstmt.executeUpdate();
             if (affectedRows > 0) {
-                System.out.println("Price updated successfully.");
+
             } else {
                 System.out.println("Price cannot change.");
             }

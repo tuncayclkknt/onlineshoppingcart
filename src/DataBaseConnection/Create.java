@@ -22,7 +22,7 @@ public class Create {
 
     // kullanıcı tablosu oluşturur
     public static void createUserTable(){
-        String url = "jdbc:sqlite:C:/Users/HUAWEİ/OneDrive/Masaüstü/cartDatabase/Deneme1";
+        String url = "jdbc:sqlite:C:/Users/HUAWEİ/OneDrive/Masaüstü/cartDatabase/Project";
         String sql = "CREATE TABLE IF NOT EXISTS Users (\n"
                 + " id INTEGER PRIMARY KEY AUTOINCREMENT,\n"
                 + " name VARCHAR(10),\n"
@@ -43,7 +43,7 @@ public class Create {
 
     // ürün tablosu oluşturur
     public static void createProductTable(){
-        String url = "jdbc:sqlite:C:/Users/HUAWEİ/OneDrive/Masaüstü/cartDatabase/Deneme1";
+        String url = "jdbc:sqlite:C:/Users/HUAWEİ/OneDrive/Masaüstü/cartDatabase/Project";
         String sql = "CREATE TABLE IF NOT EXISTS Products (\n"
                 + " productId INTEGER PRIMARY KEY,\n"
                 + " name VARCHAR(10),\n"
@@ -63,7 +63,7 @@ public class Create {
 
     // sepet tablosu oluşturur
     public static void createCartTable(){
-        String url = "jdbc:sqlite:C:/Users/HUAWEİ/OneDrive/Masaüstü/cartDatabase/Deneme1";
+        String url = "jdbc:sqlite:C:/Users/HUAWEİ/OneDrive/Masaüstü/cartDatabase/Project";
         String sql = "CREATE TABLE IF NOT EXISTS Cart (\n"
                 + " productID INTEGER PRIMARY KEY,\n"
                 + " productName VARCHAR(20),\n"

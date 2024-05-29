@@ -18,6 +18,8 @@ public class Products{
 
     // ürünlerin başlangıç stoklarını tutar, bazı kısımlarda lazım oluyor
     static ArrayList<Integer> InitialStocks = new ArrayList<>();
+    // ürünleri başlangıç stoklarıyla özdeğer indexlerde tutar
+    static ArrayList<Products> product = new ArrayList<>();
 
     public Products(String name, String description, double price, int stock) {
         this.name = name;
@@ -26,18 +28,10 @@ public class Products{
         this.stock = stock;
         InitialStocks.add(stock);
         this.productId = nextID++;
-
-    }
-
-    // ürünleri başlangıç stoklarıyla özdeğer indexlerde tutar
-    static ArrayList<Products> product = new ArrayList<>();
-
-    // arrrayliste ve database'e verilen ürünü ekler
-    static void addProduct(Products a){
-        product.add(a);
+        product.add(this);
 
         InsertData insert = new InsertData();
-        insert.insertProduct(a);
+        insert.insertProduct(productId,name,description,price,stock);
     }
 
     // ürünün kayıtlı olan yerlerden adını günceller
@@ -69,7 +63,6 @@ public class Products{
         a.setStock(newQuantities);
         InitialStocks.set(product.indexOf(a),newQuantities);
         System.out.printf("Stock of %s has been updated to %d!%n",a.getName().toLowerCase(), newQuantities);
-
         UpdataData updata = new UpdataData();
         updata.updateStockDatabase(a,newQuantities);
     }

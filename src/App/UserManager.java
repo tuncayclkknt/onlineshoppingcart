@@ -128,7 +128,6 @@ public class UserManager extends User {
         if (didLogin) {
             this.name = newName;
             this.surname = newSurname;
-            System.out.printf("Your name and surname updated as %s and %s%n", name, surname);
 
             UpdataData update = new UpdataData();
             update.updateNameAndSurnameDatabase(newName,newSurname);

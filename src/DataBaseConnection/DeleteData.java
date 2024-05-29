@@ -5,7 +5,7 @@ import java.sql.*;
 public class DeleteData {
 
     private Connection connect(){
-        String url = "jdbc:sqlite:C:/Users/HUAWEİ/OneDrive/Masaüstü/cartDatabase/Deneme1";
+        String url = "jdbc:sqlite:C:/Users/HUAWEİ/OneDrive/Masaüstü/cartDatabase/Project";
         Connection conn = null;
         try {
             conn = DriverManager.getConnection(url);
@@ -74,7 +74,6 @@ public class DeleteData {
              Statement stmt = conn.createStatement()) {
 
             stmt.executeUpdate(sql);
-            System.out.println("Cart cleared has been dropped.");
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());
