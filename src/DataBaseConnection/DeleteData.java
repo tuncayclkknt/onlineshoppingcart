@@ -5,7 +5,7 @@ import java.sql.*;
 public class DeleteData {
 
     private Connection connect(){
-        String url = "jdbc:sqlite:C:/Users/HUAWEİ/OneDrive/Masaüstü/cartDatabase/Project";
+        String url = "jdbc:sqlite:Project";
         Connection conn = null;
         try {
             conn = DriverManager.getConnection(url);

@@ -8,14 +8,14 @@ public class Main {
         User u2 = new UserManager("name","surname","username","password","mail@example.com");
         User u3 = new UserManager("name","surname","username","password","mail@example.com");
 
-//        Create.createUserTable();
-//        Create.createProductTable();
-//        Create.createCartTable();
+        Create.createUserTable();
+        Create.createProductTable();
+        Create.createCartTable();
 
-//        u1.register("Tuncay","Çelikkanat","tncy","şifre","tuncayclkknt@gmail.com");
+        u1.register("Tuncay","Çelikkanat","tncy","şifre","tuncayclkknt@gmail.com");
 //        u2.register("Fatih","Sarıkoç","ffatih","ABC","fsarıkoç@gmail.com");
 
-        u1.login("enes","1234");
+        u1.login("tncy","şifre");
 //        u1.logout();
 
 //        u1.updateUsername("tncy","enes");
