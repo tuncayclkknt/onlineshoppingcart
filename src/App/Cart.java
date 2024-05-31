@@ -31,8 +31,8 @@ public abstract class Cart{
                 update.updateStockDatabase(a,a.getStock());
 
             } else {
-                System.out.printf("We have only %d stocks for %s." +
-                        "Please wait for updating stocks or change the quantities of the product", a.getStock(), a.getName().toLowerCase());
+                System.out.printf("We have only %d stocks for %s. " +
+                        "Please wait for updating stocks or change the quantities of the product.%n", a.getStock(), a.getName().toLowerCase());
             }
         }else {
             System.out.println("You have to log in!!!");

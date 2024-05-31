@@ -93,7 +93,7 @@ public class SelecetData {
 
     // sepet tablsoundaki her şeyi yazdırır
     public void selectProductsOnCart(){
-        String sql = "SELECT * FROM Cart";
+        String sql = "SELECT * FROM Cart WHERE quantity != 0";
 
         try{
             Connection conn = this.connect();
